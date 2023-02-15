@@ -6,6 +6,7 @@ import business.exception.TipoIncompativoComOVeiculo;
 import model.*;
 import persistence.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorDeVeiculo {
@@ -63,6 +64,19 @@ public class GerenciadorDeVeiculo {
         veiculo.setNome(nome);
         repositorioDeVeiculos.atualizar(veiculo);
         return veiculo;
+    }
+
+    public List<Veiculo> buscarPorParteDoNome(String nome){
+        List<Veiculo> veiculos = new ArrayList<>();
+
+        List<Veiculo> veiculosCadastrados = listarTodos();
+
+        for (int i = 0; i < veiculosCadastrados.size(); i++) {
+            if(veiculosCadastrados.get(i).getNome().contains(nome)){
+                veiculos.add(veiculosCadastrados.get(i));
+            }
+        }
+        return veiculos;
     }
 
 }

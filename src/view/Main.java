@@ -25,6 +25,8 @@ public class Main {
         gerenciadorDeVeiculo.editar("ggg","cargo truck");
         System.out.println("---------------------------");
         gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
+        System.out.println("_______________________________________________");
+        gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
         System.out.println("Hello world!");
     }
 }
