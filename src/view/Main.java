@@ -12,6 +12,7 @@ import persistence.VeiculoEmMemoriaRepository;
 import java.time.*;
 
 public class Main {
+    public static final String DIVISOR = "--------------------------------------------------------------------------------";
     public static void main(String[] args) {
         Repository<Veiculo> repositorioDeVeiculos = new VeiculoEmMemoriaRepository();
         GerenciadorDeVeiculo gerenciadorDeVeiculo = new GerenciadorDeVeiculo(repositorioDeVeiculos);
@@ -36,10 +37,10 @@ public class Main {
         gerenciadorDeVeiculo.adicionarVeiculo("1113", "dddd", Tipo.PEQUENO, Caminhao.class);
         gerenciadorDeVeiculo.adicionarVeiculo("cargo", "ggg", Tipo.MEDIO, Caminhao.class);
         gerenciadorDeVeiculo.editar("ggg","cargo truck");
-//        System.out.println("------------------------------------------------------");
-//        gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
-//        System.out.println("------------------------------------------------------");
-//        gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
 
         gerenciadorDePessoa.adicionarPessoa("Jose Guilherme","09389721466",PessoaFisica.class);
         gerenciadorDePessoa.adicionarPessoa("joao Guilherme","09389721477",PessoaFisica.class);
@@ -47,23 +48,41 @@ public class Main {
 
         gerenciadorDePessoa.adicionarPessoa("Guilherme TI","854565646",PessoaJuridica.class);
         gerenciadorDePessoa.adicionarPessoa("Gustavo TI","789987",PessoaJuridica.class);
-//        System.out.println("------------------------------------------------------");
-//        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
-//        System.out.println("------------------------------------------------------");
-//        gerenciadorDePessoa.buscarPorParteDoNome("Gui").forEach(System.out::println);
-
-        gerenciadorDeAlugueis.alugar(gerenciadorDeVeiculo.buscarPorId("AAA0000"),
+        System.out.println(DIVISOR);
+        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDePessoa.buscarPorParteDoNome("Gui").forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDeAlugueis.alugar("AAA0000",
                 gerenciadorDePessoa.buscarPorId("09389721466"),
-                LocalDateTime.now(),
+                LocalDateTime.of(2023, Month.FEBRUARY, 15, 14,00),
                 "Barra da tijuca");
-        gerenciadorDeAlugueis.alugar(gerenciadorDeVeiculo.buscarPorId("ggg"),
+        gerenciadorDeAlugueis.alugar("ggg",
                 gerenciadorDePessoa.buscarPorId("789987"),
-                LocalDateTime.now(),
+                LocalDateTime.of(2023, Month.FEBRUARY, 15, 14,00),
                 "Barra de guabiraba");
 
         gerenciadorDeAlugueis.listarTodos().forEach(System.out::println);
+        gerenciadorDeAlugueis.devolver("AAA0000",
+                LocalDateTime.of(2023, Month.FEBRUARY, 19, 14,02));
+        gerenciadorDeAlugueis.devolver("ggg",
+                LocalDateTime.of(2023, Month.FEBRUARY, 17, 14,02));
+        System.out.println(DIVISOR);
+        gerenciadorDeAlugueis.listarTodos().forEach(System.out::println);
+        gerenciadorDeAlugueis.alugar("AAA0000",
+                gerenciadorDePessoa.buscarPorId("09389721466"),
+                LocalDateTime.of(2023, Month.FEBRUARY, 22, 14,00),
+                "Barra de baixo");
+        System.out.println(DIVISOR);
 
-
-
+        gerenciadorDeAlugueis.listarTodos().forEach(System.out::println);
+        gerenciadorDeAlugueis.devolver("AAA0000",
+                LocalDateTime.of(2023, Month.FEBRUARY, 23, 14,00));
+        System.out.println(DIVISOR);
+        gerenciadorDeAlugueis.listarTodos().forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
+        System.out.println(DIVISOR);
+        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
     }
 }

@@ -8,7 +8,7 @@ public class Aluguel implements Entidade {
     private BigDecimal valor;
     private LocalDateTime inicioDoAluguel;
     private LocalDateTime fimDoAluguel;
-    private Veiculo veiculo;
+    private String placa;
     private Pessoa pessoa;
     private String local;
 
@@ -40,12 +40,12 @@ public class Aluguel implements Entidade {
         this.fimDoAluguel = fimDoAluguel;
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public Pessoa getPessoa() {
@@ -76,7 +76,7 @@ public class Aluguel implements Entidade {
                 ", valor=" + valor +
                 ", inicioDoAluguel=" + inicioDoAluguel +
                 ", fimDoAluguel=" + fimDoAluguel +
-                ", veiculo=" + veiculo +
+                ", veiculo=" + placa +
                 ", pessoa=" + pessoa +
                 ", local='" + local + '\'' +
                 ']';
