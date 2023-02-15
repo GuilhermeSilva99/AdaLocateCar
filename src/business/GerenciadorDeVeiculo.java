@@ -57,7 +57,7 @@ public class GerenciadorDeVeiculo {
 
     public Veiculo editar(String placa, String nome){
         if (!existeVeiculo(placa)) {
-            throw new RegistroNaoEncontradoException(placa);
+            throw new RegistroNaoEncontradoException("Veiculo",placa);
         }
 
         Veiculo veiculo = repositorioDeVeiculos.consultar(placa);

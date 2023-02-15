@@ -23,10 +23,10 @@ public class Main {
         gerenciadorDeVeiculo.adicionarVeiculo("1113", "dddd", Tipo.PEQUENO, Caminhao.class);
         gerenciadorDeVeiculo.adicionarVeiculo("cargo", "ggg", Tipo.MEDIO, Caminhao.class);
         gerenciadorDeVeiculo.editar("ggg","cargo truck");
-        System.out.println("---------------------------");
+        System.out.println("-----------------------------------------");
         gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
-        System.out.println("_______________________________________________");
+        System.out.println("------------------------------------------------------");
         gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
-        System.out.println("Hello world!");
+
     }
 }
