@@ -59,11 +59,6 @@ public class RepositorioEmMemoriaGenerico<T extends Entidade> implements Reposit
             }
         }
         return null;
-
-//        Optional<T> entidade = dados.stream()
-//                .filter(p -> p.getId().equals(id))
-//                .findFirst();
-//        return entidade.orElse(null);
     }
 
     @Override

@@ -11,9 +11,6 @@ public abstract class Veiculo implements Entidade{
         this.placa = placa;
         alugado = false;
     }
-
-    protected abstract boolean analisarTipoPorVeiculo(Tipo tipo);
-
     public String getPlaca(){
         return placa;
     }
@@ -26,6 +23,14 @@ public abstract class Veiculo implements Entidade{
 
     public Tipo getTipo() {
         return tipo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setAlugado(boolean alugado) {
+        this.alugado = alugado;
     }
 
     @Override

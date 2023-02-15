@@ -6,15 +6,7 @@ public class Caminhao extends Veiculo{
         this.tipo = tipo;
     }
 
-    @Override
-    protected boolean analisarTipoPorVeiculo(Tipo tipo) {
-        if(tipo.equals(Tipo.SUV)){
-            return false;
-        }
-        return true;
-    }
-
-    @Override
+        @Override
     public String getId() {
         return getPlaca();
     }

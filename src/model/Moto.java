@@ -1,20 +1,14 @@
 package model;
 
-public class Moto extends Veiculo{
+import java.io.Serializable;
+
+public class Moto extends Veiculo implements Serializable {
     public Moto(String nome, String placa, Tipo tipo) {
         super(nome, placa);
         this.tipo = tipo;
     }
 
-    @Override
-    protected boolean analisarTipoPorVeiculo(Tipo tipo) {
-        if(tipo.equals(Tipo.SUV)){
-            return false;
-        }
-        return true;
-    }
-
-    @Override
+      @Override
     public String getId() {
         return getPlaca();
     }

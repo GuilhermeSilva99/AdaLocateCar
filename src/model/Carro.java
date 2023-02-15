@@ -7,12 +7,7 @@ public class Carro extends Veiculo{
         this.tipo = tipo;
     }
 
-    @Override
-    protected boolean analisarTipoPorVeiculo(Tipo tipo) {
-        return true;
-    }
-
-    @Override
+      @Override
     public String getId() {
         return getPlaca();
     }
