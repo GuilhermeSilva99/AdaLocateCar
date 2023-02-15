@@ -71,4 +71,7 @@ public class GerenciadorDePessoa {
         return Pessoas;
     }
 
+    public Pessoa buscarPorId(String id){
+        return repositorioDePessoas.consultar(id);
+    }
 }

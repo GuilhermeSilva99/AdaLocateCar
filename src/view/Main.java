@@ -1,11 +1,15 @@
 package view;
 
+import business.GerenciadorDeAlugueis;
 import business.GerenciadorDePessoa;
 import business.GerenciadorDeVeiculo;
 import model.*;
+import persistence.AluguelEmMemoriaRepository;
 import persistence.PessoaEmMemoriaRepository;
 import persistence.Repository;
 import persistence.VeiculoEmMemoriaRepository;
+
+import java.time.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +17,9 @@ public class Main {
         GerenciadorDeVeiculo gerenciadorDeVeiculo = new GerenciadorDeVeiculo(repositorioDeVeiculos);
         Repository<Pessoa> repositorioDePessoas = new PessoaEmMemoriaRepository();
         GerenciadorDePessoa  gerenciadorDePessoa= new GerenciadorDePessoa(repositorioDePessoas);
+        Repository<Aluguel> repositorioDeAluguel = new AluguelEmMemoriaRepository();
+        GerenciadorDeAlugueis gerenciadorDeAlugueis = new GerenciadorDeAlugueis(repositorioDeVeiculos, repositorioDePessoas, repositorioDeAluguel);
+
 
         //Veiculos
         //Motos
@@ -40,10 +47,22 @@ public class Main {
 
         gerenciadorDePessoa.adicionarPessoa("Guilherme TI","854565646",PessoaJuridica.class);
         gerenciadorDePessoa.adicionarPessoa("Gustavo TI","789987",PessoaJuridica.class);
-        System.out.println("------------------------------------------------------");
-        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
-        System.out.println("------------------------------------------------------");
-        gerenciadorDePessoa.buscarPorParteDoNome("Gui").forEach(System.out::println);
+//        System.out.println("------------------------------------------------------");
+//        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
+//        System.out.println("------------------------------------------------------");
+//        gerenciadorDePessoa.buscarPorParteDoNome("Gui").forEach(System.out::println);
+
+        gerenciadorDeAlugueis.alugar(gerenciadorDeVeiculo.buscarPorId("AAA0000"),
+                gerenciadorDePessoa.buscarPorId("09389721466"),
+                LocalDateTime.now(),
+                "Barra da tijuca");
+        gerenciadorDeAlugueis.alugar(gerenciadorDeVeiculo.buscarPorId("ggg"),
+                gerenciadorDePessoa.buscarPorId("789987"),
+                LocalDateTime.now(),
+                "Barra de guabiraba");
+
+        gerenciadorDeAlugueis.listarTodos().forEach(System.out::println);
+
 
 
     }

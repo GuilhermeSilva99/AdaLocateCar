@@ -66,6 +66,11 @@ public class GerenciadorDeVeiculo {
         return veiculo;
     }
 
+    public Veiculo atualizar(Veiculo veiculo){
+        repositorioDeVeiculos.atualizar(veiculo);
+        return veiculo;
+    }
+
     public List<Veiculo> buscarPorParteDoNome(String nome){
         List<Veiculo> veiculos = new ArrayList<>();
 
@@ -77,6 +82,10 @@ public class GerenciadorDeVeiculo {
             }
         }
         return veiculos;
+    }
+
+    public Veiculo buscarPorId(String id){
+        return repositorioDeVeiculos.consultar(id);
     }
 
 }
