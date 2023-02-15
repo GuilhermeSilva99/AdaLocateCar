@@ -35,12 +35,12 @@ public abstract class Veiculo implements Entidade{
 
     @Override
     public String toString() {
-        return "Veiculo{" +
+        return "Veiculo[" +
                 "placa='" + placa + '\'' +
                 ", nome='" + nome + '\'' +
                 ", alugado=" + alugado +
                 ", tipo=" + tipo + '\''+
                 ", calsse="+ getClass().getSimpleName() +'\''+
-                '}';
+                ']';
     }
 }

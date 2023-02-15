@@ -1,7 +1,9 @@
 package view;
 
+import business.GerenciadorDePessoa;
 import business.GerenciadorDeVeiculo;
 import model.*;
+import persistence.PessoaEmMemoriaRepository;
 import persistence.Repository;
 import persistence.VeiculoEmMemoriaRepository;
 
@@ -9,6 +11,10 @@ public class Main {
     public static void main(String[] args) {
         Repository<Veiculo> repositorioDeVeiculos = new VeiculoEmMemoriaRepository();
         GerenciadorDeVeiculo gerenciadorDeVeiculo = new GerenciadorDeVeiculo(repositorioDeVeiculos);
+        Repository<Pessoa> repositorioDePessoas = new PessoaEmMemoriaRepository();
+        GerenciadorDePessoa  gerenciadorDePessoa= new GerenciadorDePessoa(repositorioDePessoas);
+
+        //Veiculos
         //Motos
         gerenciadorDeVeiculo.adicionarVeiculo("XRE300", "AAA0000", Tipo.MEDIO, Moto.class);
         gerenciadorDeVeiculo.adicionarVeiculo("XRE302220", "aaa", Tipo.PEQUENO, Moto.class);
@@ -23,10 +29,22 @@ public class Main {
         gerenciadorDeVeiculo.adicionarVeiculo("1113", "dddd", Tipo.PEQUENO, Caminhao.class);
         gerenciadorDeVeiculo.adicionarVeiculo("cargo", "ggg", Tipo.MEDIO, Caminhao.class);
         gerenciadorDeVeiculo.editar("ggg","cargo truck");
-        System.out.println("-----------------------------------------");
-        gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
+//        System.out.println("------------------------------------------------------");
+//        gerenciadorDeVeiculo.listarTodos().forEach(System.out::println);
+//        System.out.println("------------------------------------------------------");
+//        gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
+
+        gerenciadorDePessoa.adicionarPessoa("Jose Guilherme","09389721466",PessoaFisica.class);
+        gerenciadorDePessoa.adicionarPessoa("joao Guilherme","09389721477",PessoaFisica.class);
+        gerenciadorDePessoa.editar("09389721477", "zé Guilherme");
+
+        gerenciadorDePessoa.adicionarPessoa("Guilherme TI","854565646",PessoaJuridica.class);
+        gerenciadorDePessoa.adicionarPessoa("Gustavo TI","789987",PessoaJuridica.class);
         System.out.println("------------------------------------------------------");
-        gerenciadorDeVeiculo.buscarPorParteDoNome("XRE").forEach(System.out::println);
+        gerenciadorDePessoa.listarTodos().forEach(System.out::println);
+        System.out.println("------------------------------------------------------");
+        gerenciadorDePessoa.buscarPorParteDoNome("Gui").forEach(System.out::println);
+
 
     }
 }
